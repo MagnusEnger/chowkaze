@@ -39,7 +39,7 @@ See the file example.yaml
 
 *** Licence
 
-Copyright 2011 Magnus Enger
+Copyright 2012 Magnus Enger
 
 This is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
