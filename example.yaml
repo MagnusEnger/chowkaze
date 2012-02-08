@@ -1,0 +1,60 @@
+---
+# General settings
+
+title: "My web-app presentation"
+footer: "Thanks to jQuery Mobile!"
+
+---
+# Menu
+# The root node should always be called "index"
+
+- index:
+  - intro: 
+    - history:
+    - about:
+  - example:  
+    - example1:
+    - example2:
+
+---
+# Pages
+# A hash of hashes
+
+index: 
+  title: "This is my web-app"
+  intro: "Some text - it will be displayed as one paragraph."
+  points: 
+  - "Static pages"
+  - "Built on jQuery Mobile"
+
+intro:
+  title: "History"
+  intro: "A short history of the project."
+
+about:
+  title: "About the project"
+  intro: "A short description of the project."
+
+example:
+  title: "Example title"
+  intro: "Example introduction"
+  points:
+  - "Point 1"
+  - "Point 2"
+  - "Point 3"  
+  
+example1:
+  title: "Example title 1"
+  intro: "Example introduction 1"
+  points:
+  - "Point 1"
+  - "Point 2"
+  - "Point 3"  
+  
+example2:
+  title: "Example title 2"
+  intro: "Example introduction 2"
+  points:
+  - "Point 1"
+  - "Point 2"
+  - "Point 3"  
