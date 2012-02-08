@@ -1,0 +1,53 @@
+[% INCLUDE header.tt %]
+[%# IF slug == 'index' %][%# INCLUDE header.tt %][%# END %]
+
+<div data-role="page">
+
+	<div data-role="header" data-theme="b">
+	  [% IF slug != "index" %]
+	  <a href="index.html" data-rel="back" data-icon="back">Tilbake</a>
+	  [% END %]
+		<h1>[% page.title %]</h1>
+		[% IF slug != "index" %]
+		<a href="index.html" data-icon="home">Hjem</a>
+		[% END %]
+	</div>
+
+	<div data-role="content" data-theme="b">	
+
+    [% IF page.intro %]
+  		<p>[% page.intro %]</p>	
+    [% END %]
+    
+	  <div class="content-primary">
+  		<p><img src="img/[% slug %].png" /></p>
+		</div>
+
+		<div class="content-secondary">
+		  [% IF page.points.0 %]
+		    <ul data-role="listview" data-theme="c">
+		    [% FOREACH p IN page.points %]
+          <li>[% p %]</li>
+        [% END %]
+        </ul>
+      [% END %]
+      [% IF menu.0 %]
+        <p>Les mer:</p>
+		    <ul data-role="listview" data-theme="c" data-inset="true">
+		    [% FOREACH m IN menu %]
+          <li><a href="[% m.slug %].html">[% m.title %]</a></li>
+        [% END %]
+        </ul>
+      [% END %]
+    </div>
+
+	</div>
+
+	<div data-role="footer" data-theme="b">
+		<h4>[% settings.footer %]</h4>
+	</div>
+
+</div>
+
+[%# IF slug == 'index' %][%# INCLUDE footer.tt %][%# END %]
+[% INCLUDE footer.tt %]
