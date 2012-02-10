@@ -1,7 +1,7 @@
 [% INCLUDE header.tt %]
 [%# IF slug == 'index' %][%# INCLUDE header.tt %][%# END %]
 
-<div data-role="page">
+<div data-role="page" id="page_[% slug %]">
 
 	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
 	  [% IF slug != "index" %]
@@ -23,7 +23,7 @@
 	    [% IF page.youtube %]
 	      <iframe width="560" height="315" src="http://www.youtube.com/embed/[% page.youtube %]" frameborder="0" allowfullscreen></iframe>
 	    [% ELSE %]
-  		  <p><img src="img/[% slug %].png" /></p>
+  		  <p><a href="img/[% slug %].pn"><img src="img/[% slug %].png" /></a></p>
   		[% END %]
 		</div>
 
