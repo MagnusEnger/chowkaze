@@ -23,7 +23,7 @@
 	    [% IF page.youtube %]
 	      <iframe width="560" height="315" src="http://www.youtube.com/embed/[% page.youtube %]" frameborder="0" allowfullscreen></iframe>
 	    [% ELSE %]
-  		  <p><a href="img/[% slug %].pn"><img src="img/[% slug %].png" /></a></p>
+  		  <p><img src="img/[% slug %].png" /></p>
   		[% END %]
 		</div>
 
