@@ -3,7 +3,7 @@
 
 <div data-role="page">
 
-	<div data-role="header" data-theme="[% settings.data_theme_header %]">
+	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
 	  [% IF slug != "index" %]
 	  <a href="index.html" data-rel="back" data-icon="back">Tilbake</a>
 	  [% END %]
@@ -13,7 +13,7 @@
 		[% END %]
 	</div>
 
-	<div data-role="content" data-theme="[% settings.data_theme_content %]">	
+	<div data-role="content" data-theme="[% settings.data_theme_content or "b" %]">	
 
     [% IF page.intro %]
   		<p>[% page.intro %]</p>	
@@ -29,7 +29,7 @@
 
 		<div class="content-secondary">
 		  [% IF page.points.0 %]
-		    <ul data-role="listview" data-theme="[% settings.data_theme_points %]">
+		    <ul data-role="listview" data-theme="[% settings.data_theme_points or "c" %]">
 		    [% FOREACH p IN page.points %]
           <li>[% p %]</li>
         [% END %]
@@ -37,7 +37,7 @@
       [% END %]
       [% IF menu.0 %]
         <p>Les mer:</p>
-		    <ul data-role="listview" data-theme="[% settings.data_theme_menu %]" data-inset="true">
+		    <ul data-role="listview" data-theme="[% settings.data_theme_menu or "c" %]" data-inset="true">
 		    [% FOREACH m IN menu %]
           <li><a href="[% m.slug %].html">[% m.title %]</a></li>
         [% END %]
@@ -47,7 +47,7 @@
 
 	</div>
 
-	<div data-role="footer" data-theme="[% settings.data_theme_footer %]">
+	<div data-role="footer" data-theme="[% settings.data_theme_footer or "b" %]">
 		<h4>[% settings.footer %]</h4>
 	</div>
 
