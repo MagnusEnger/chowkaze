@@ -4,6 +4,13 @@
 title: "My web-app presentation"
 footer: "Thanks to jQuery Mobile!"
 
+# http://jquerymobile.com/demos/1.0.1/docs/pages/pages-themes.html
+data_theme_header:  "b"
+data_theme_content: "b"
+data_theme_footer:  "b"
+data_theme_menu:    "c"
+data_theme_points:  "c"
+
 ---
 # Menu
 # The root node should always be called "index"

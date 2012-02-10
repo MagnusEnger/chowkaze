@@ -3,7 +3,7 @@
 
 <div data-role="page">
 
-	<div data-role="header" data-theme="b">
+	<div data-role="header" data-theme="[% settings.data_theme_header %]">
 	  [% IF slug != "index" %]
 	  <a href="index.html" data-rel="back" data-icon="back">Tilbake</a>
 	  [% END %]
@@ -13,7 +13,7 @@
 		[% END %]
 	</div>
 
-	<div data-role="content" data-theme="b">	
+	<div data-role="content" data-theme="[% settings.data_theme_content %]">	
 
     [% IF page.intro %]
   		<p>[% page.intro %]</p>	
@@ -29,7 +29,7 @@
 
 		<div class="content-secondary">
 		  [% IF page.points.0 %]
-		    <ul data-role="listview" data-theme="c">
+		    <ul data-role="listview" data-theme="[% settings.data_theme_points %]">
 		    [% FOREACH p IN page.points %]
           <li>[% p %]</li>
         [% END %]
@@ -37,7 +37,7 @@
       [% END %]
       [% IF menu.0 %]
         <p>Les mer:</p>
-		    <ul data-role="listview" data-theme="c" data-inset="true">
+		    <ul data-role="listview" data-theme="[% settings.data_theme_menu %]" data-inset="true">
 		    [% FOREACH m IN menu %]
           <li><a href="[% m.slug %].html">[% m.title %]</a></li>
         [% END %]
@@ -47,11 +47,11 @@
 
 	</div>
 
-	<div data-role="footer" data-theme="b">
+	<div data-role="footer" data-theme="[% settings.data_theme_footer %]">
 		<h4>[% settings.footer %]</h4>
 	</div>
 
 </div>
 
 [%# IF slug == 'index' %][%# INCLUDE footer.tt %][%# END %]
-[% INCLUDE footer.tt %]
+[% INCLUDE footer.tt %]1
