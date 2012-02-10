@@ -20,7 +20,11 @@
     [% END %]
     
 	  <div class="content-primary">
-  		<p><img src="img/[% slug %].png" /></p>
+	    [% IF page.youtube %]
+	      <iframe width="560" height="315" src="http://www.youtube.com/embed/[% page.youtube %]" frameborder="0" allowfullscreen></iframe>
+	    [% ELSE %]
+  		  <p><img src="img/[% slug %].png" /></p>
+  		[% END %]
 		</div>
 
 		<div class="content-secondary">
