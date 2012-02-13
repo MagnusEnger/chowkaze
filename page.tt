@@ -58,7 +58,7 @@
 	  <h1>[% page.title %]</h1>
 	</div>
 	<div data-role="content" data-theme="[% settings.data_theme_content or "b" %]">	
-    <p style="text-align: center;"><img src="img/[% slug %].png" /></p>
+    <p style="text-align: center;"><a href="#[% slug %]" data-rel="back" data-icon="back"><img src="img/[% slug %].png" /></a></p>
 	</div>
 </div>
 
