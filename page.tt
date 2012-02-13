@@ -1,5 +1,3 @@
-[% INCLUDE header.tt %]
-
 <div data-role="page" id="page_[% slug %]">
 
 	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
@@ -38,7 +36,7 @@
         <p>Les mer:</p>
 		    <ul data-role="listview" data-theme="[% settings.data_theme_menu or "c" %]" data-inset="true">
 		    [% FOREACH m IN menu %]
-          <li><a href="[% m.slug %].html">[% m.title %]</a></li>
+          <li><a href="#page_[% m.slug %]">[% m.title %]</a></li>
         [% END %]
         </ul>
       [% END %]
@@ -54,12 +52,10 @@
 
 <div data-role="page" id="img_[% slug %]">
 	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
-	  <a href="#[% slug %]" data-rel="back" data-icon="back">Tilbake</a>
+	  <a href="#page_[% slug %]" data-rel="back" data-icon="back">Tilbake</a>
 	  <h1>[% page.title %]</h1>
 	</div>
 	<div data-role="content" data-theme="[% settings.data_theme_content or "b" %]">	
     <p style="text-align: center;"><a href="#[% slug %]" data-rel="back" data-icon="back"><img src="img/[% slug %].png" /></a></p>
 	</div>
 </div>
-
-[% INCLUDE footer.tt %]

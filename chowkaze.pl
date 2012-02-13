@@ -26,6 +26,7 @@ use File::Basename;
 use Data::Dumper;
 
 my ($yaml, $debug) = get_options();
+my @pages;
 
 print "\nStarting chowkaze.pl\n" if $debug;
 
@@ -55,6 +56,13 @@ my $tt = Template->new({
 
 process_page($menu);
 
+my $vars = {
+  settings => $settings, 
+  pages    => \@pages,
+};
+my $outfile = $destdir . '/index.html';
+$tt->process('index.tt', $vars, $outfile) || die $tt->error(), "\n";
+
 print "\n";
 
 sub process_page {
@@ -62,8 +70,8 @@ sub process_page {
   my $menu  = shift;
 
   foreach my $menuitem ( @{$menu} ) {
-    while ( my ($page, $submenu) = each( %$menuitem ) ) {
-      print "* ", get_page_title($page), "\n" if $debug;
+    while ( my ($slug, $submenu) = each( %$menuitem ) ) {
+      print "* ", get_page_title($slug), "\n" if $debug;
       my @localmenu;
       foreach my $submenuitem ( @{$submenu} ) {
         while ( my ($subpage, $subsubmenu) = each( %$submenuitem ) ) {
@@ -75,14 +83,16 @@ sub process_page {
       }
       my $vars = {
         settings => $settings, 
-        slug     => $page, 
-        page     => $pages->{$page},
+        slug     => $slug, 
+        page     => $pages->{$slug},
         menu     => \@localmenu,
       };
-      my $outfile = $destdir . $page . ".html";
-      print "$outfile\n";
-      $tt->process('page.tt', $vars, $outfile) || die $tt->error(), "\n";
-      my $pageimage = $destdir . "img/" . $page . ".png";
+      # my $outfile = $destdir . $page . ".html";
+      # $tt->process('page.tt', $vars, $outfile) || die $tt->error(), "\n";
+      my $page;
+      $tt->process('page.tt', $vars, \$page) || die $tt->error(), "\n";
+      push(@pages, $page);
+      my $pageimage = $destdir . "img/" . $slug . ".png";
       if ( !-e $pageimage ) {
         print "ERROR: $pageimage not found\n";
       }

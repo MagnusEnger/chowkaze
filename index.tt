@@ -37,3 +37,10 @@ $(function(){
 	</script>
 </head> 
 <body> 
+
+[% FOREACH p IN pages %]
+[% p %]
+[% END %]
+
+</body>
+</html>
