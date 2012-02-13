@@ -1,5 +1,4 @@
 [% INCLUDE header.tt %]
-[%# IF slug == 'index' %][%# INCLUDE header.tt %][%# END %]
 
 <div data-role="page" id="page_[% slug %]">
 
@@ -23,7 +22,7 @@
 	    [% IF page.youtube %]
 	      <iframe width="560" height="315" src="http://www.youtube.com/embed/[% page.youtube %]" frameborder="0" allowfullscreen></iframe>
 	    [% ELSE %]
-  		  <p><a href="#img_[% slug %]"><img src="img/[% slug %].png" /></a></p>
+  		  <p><a href="#img_[% slug %]" data-transition="fade"><img src="img/[% slug %].png" /></a></p>
   		[% END %]
 		</div>
 
@@ -63,5 +62,4 @@
 	</div>
 </div>
 
-[%# IF slug == 'index' %][%# INCLUDE footer.tt %][%# END %]
-[% INCLUDE footer.tt %]1
+[% INCLUDE footer.tt %]
