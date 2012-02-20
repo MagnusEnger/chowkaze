@@ -46,6 +46,7 @@ about:
 example:
   title: "Example title"
   intro: "Example introduction"
+  vimeo: 'ABCDerg'
   points:
   - "Point 1"
   - "Point 2"
