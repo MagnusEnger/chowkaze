@@ -81,21 +81,24 @@ sub process_page {
           push(@localmenu, \%m);
         }
       }
+      # Give a warning if there is no video and no image
+      my $pageimage = $destdir . "img/" . $slug . ".png";
+      my $has_image = 0;
+      if ( !$pages->{$slug}->{'vimeo'} && !$pages->{$slug}->{'youtube'} && !-e $pageimage ) {
+        print "ERROR: $pageimage not found\n";
+      } elsif ( -e $pageimage ) {
+        $has_image = 1;
+      }
       my $vars = {
-        settings => $settings, 
-        slug     => $slug, 
-        page     => $pages->{$slug},
-        menu     => \@localmenu,
+        settings  => $settings, 
+        slug      => $slug,
+        page      => $pages->{$slug},
+        has_image => $has_image,
+        menu      => \@localmenu,
       };
-      # my $outfile = $destdir . $page . ".html";
-      # $tt->process('page.tt', $vars, $outfile) || die $tt->error(), "\n";
       my $page;
       $tt->process('page.tt', $vars, \$page) || die $tt->error(), "\n";
       push(@pages, $page);
-      my $pageimage = $destdir . "img/" . $slug . ".png";
-      if ( !-e $pageimage ) {
-        print "ERROR: $pageimage not found\n";
-      }
       process_page($submenu);
     }
   }
