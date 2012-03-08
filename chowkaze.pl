@@ -23,6 +23,7 @@ use YAML::Syck qw'LoadFile';
 use Getopt::Long;
 use Pod::Usage;
 use File::Basename;
+use File::Slurp;
 use Data::Dumper;
 
 my ($yaml, $debug) = get_options();
@@ -83,9 +84,13 @@ sub process_page {
       }
       # Give a warning if there is no video and no image
       my $pageimage = $destdir . "img/" . $slug . ".png";
+      my $pagehtml  = $destdir . "img/" . $slug . ".html";
+      my $html = '';
       my $has_image = 0;
       if ( !$pages->{$slug}->{'vimeo'} && !$pages->{$slug}->{'youtube'} && !-e $pageimage ) {
         print "ERROR: $pageimage not found\n";
+      } elsif ( -e $pagehtml ) {
+        $html = read_file( $pagehtml );
       } elsif ( -e $pageimage ) {
         $has_image = 1;
       }
@@ -93,6 +98,7 @@ sub process_page {
         settings  => $settings, 
         slug      => $slug,
         page      => $pages->{$slug},
+        html      => $html, 
         has_image => $has_image,
         menu      => \@localmenu,
       };

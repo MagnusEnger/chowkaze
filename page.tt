@@ -21,6 +21,8 @@
 	      <iframe width="560" height="315" src="http://www.youtube.com/embed/[% page.youtube %]" frameborder="0" allowfullscreen></iframe>
 	    [% ELSIF page.vimeo %]
 	      <iframe src="http://blip.tv/play/[% page.vimeo %].html?p=1" width="550" height="443" frameborder="0" allowfullscreen></iframe><embed type="application/x-shockwave-flash" src="http://a.blip.tv/api.swf#[% page.vimeo %]" style="display:none"></embed>
+	    [% ELSIF html %]
+	      [% html %]
 	    [% ELSIF has_image == 1 %]
   		  <p><a href="#img_[% slug %]" data-transition="fade"><img src="img/[% slug %].png" /></a></p>
   		[% END %]
