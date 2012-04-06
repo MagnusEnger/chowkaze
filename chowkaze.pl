@@ -58,8 +58,9 @@ my $tt = Template->new({
 process_page($menu);
 
 my $vars = {
-  settings => $settings, 
-  pages    => \@pages,
+  'settings'       => $settings, 
+  'appletouchicon' => has_apple_touch_icon($destdir), 
+  'pages'          => \@pages,
 };
 my $outfile = $destdir . '/index.html';
 $tt->process('index.tt', $vars, $outfile) || die $tt->error(), "\n";
@@ -109,6 +110,19 @@ sub process_page {
     }
   }
   
+}
+
+# Check if there is a file called apple-touch-icon in the static dir
+sub has_apple_touch_icon {
+
+  my ($destdir) = @_;
+  
+  if ( -e "$destdir/static/apple-touch-icon.png" ) {
+    return 1;
+  } else {
+    return 0;
+  }
+
 }
 
 sub get_page_title {
