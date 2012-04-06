@@ -11,6 +11,13 @@ data_theme_footer:  "b"
 data_theme_menu:    "c"
 data_theme_points:  "c"
 
+# Integration with Piwik ( http://piwik.org/ )
+# To use Piwik: piwik_use: 1
+# To turn Piwik-integration off: piwik_use: 0
+piwik_use: 1
+piwik_baseurl: stats.libriotech.no
+piwik_id: 4
+
 ---
 # Menu
 # The root node should always be called "index"
