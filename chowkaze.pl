@@ -53,6 +53,7 @@ print "Destination dir: $destdir\n" if $debug;
 my $tt = Template->new({
     INCLUDE_PATH => '.',
     INTERPOLATE  => 1,
+    RECURSION    => 1, 
 }) || die "$Template::ERROR\n";
 
 process_page($menu);
@@ -61,6 +62,8 @@ my $vars = {
   'settings'       => $settings, 
   'appletouchicon' => has_apple_touch_icon($destdir), 
   'pages'          => \@pages,
+  'rawpages'       => $pages, 
+  'menu'           => $menu, 
 };
 my $outfile = $destdir . '/index.html';
 $tt->process('index.tt', $vars, $outfile) || die $tt->error(), "\n";

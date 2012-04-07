@@ -1,0 +1,41 @@
+<div data-role="page" id="toc">
+
+	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
+	  <a href="index.html" data-rel="back" data-icon="back">Tilbake</a>
+		<h1>[% settings.toc_title %]</h1>
+		<a href="index.html" data-icon="home">Hjem</a>
+	</div>
+
+	<div data-role="content" data-theme="[% settings.data_theme_content or "b" %]">	
+
+[% VIEW foo %]
+
+   [% BLOCK text %][% END %]
+
+   [% BLOCK hash %]
+      [% FOREACH key = item.keys.sort -%]
+         <li><a href="#page_[% key %]">[% FILTER repeat(x) %][% settings.toc_padding %][% END %] [% rawpages.$key.title %]</a></li> 
+         [% foo.print(item.$key) %]
+      [% END -%]
+   [% END %]
+
+   [% BLOCK list %]
+      [% x = x + 1 %]
+      [% FOREACH i IN item %]
+      [% foo.print(i) %]
+      [% END %]
+   [% END %]
+
+[% END %]
+
+[% x = -1 %]
+
+<ul data-role="listview" data-theme="[% settings.data_theme_menu or "c" %]" data-inset="true" data-filter="true">
+[% foo.print(menu) %]
+</ul>
+
+	</div>
+
+  [% INCLUDE footer.tt %]
+
+</div>

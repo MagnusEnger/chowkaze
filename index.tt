@@ -47,6 +47,10 @@ $(function(){
 [% p %]
 [% END %]
 
+[% IF settings.toc == 1 %]
+[% INCLUDE toc.tt %]
+[% END %]
+
 [% IF settings.piwik_use == 1 %]
 <!-- Piwik -->
 <script type="text/javascript">

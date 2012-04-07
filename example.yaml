@@ -18,6 +18,12 @@ piwik_use: 1
 piwik_baseurl: stats.libriotech.no
 piwik_id: 4
 
+# Generate a table of contents (TOC)? 
+toc: 1
+toc_title: 'Table of contents'
+# What should we use to create the indentation in the TOC?
+toc_padding: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+
 ---
 # Menu
 # The root node should always be called "index"

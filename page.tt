@@ -1,4 +1,4 @@
-<div data-role="page" id="page_[% slug %]">
+<div data-role="page" id="page_[% slug %]" data-title="[% page.title %]">
 
 	<div data-role="header" data-theme="[% settings.data_theme_header or "b" %]">
 	  [% IF slug != "index" %]
@@ -48,9 +48,7 @@
 
 	</div>
 
-	<div data-role="footer" data-theme="[% settings.data_theme_footer or "b" %]">
-		<h4>[% settings.footer %]</h4>
-	</div>
+  [% INCLUDE footer.tt %]
 
 </div>
 
