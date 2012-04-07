@@ -1,11 +1,13 @@
-	<div data-role="footer" data-theme="[% settings.data_theme_footer or "b" %]">
-		<h4>[% settings.footer %]</h4>
-			<div data-role="navbar">
+<div data-role="footer" data-theme="[% settings.data_theme_footer or "b" %]">
+  <h4>[% settings.footer %]</h4>
+	[% IF settings.footer_toolbar == 1 %]
+		<div data-role="navbar">
 		<ul>
 			<li><a href="index.html" data-icon="home">Hjem</a></li>
 			[% IF settings.toc == 1 %]
 			<li><a href="#toc" data-icon="grid">Innhold</a></li>
 			[% END %]
 		</ul>
-	</div>
-	</div>
+	  </div>
+	[% END %]
+</div>

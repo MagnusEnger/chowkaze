@@ -24,6 +24,9 @@ toc_title: 'Table of contents'
 # What should we use to create the indentation in the TOC?
 toc_padding: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 
+# Show footer toolbar?
+footer_toolbar: 1
+
 ---
 # Menu
 # The root node should always be called "index"
